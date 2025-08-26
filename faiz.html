@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Alchemy by Faiz - Pastry Shop in Kochi</title>
+  <meta name="description" content="Alchemy by Faiz is a cozy pastry shop in Kadungalloor, Kochi, offering delicious pastries and baked goods. Delivery available via Swiggy and Zomato.">
+  <meta name="keywords" content="pastry shop kochi, baked goods kochi, cafe kadungalloor, alchemy by faiz, desserts kochi">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <style>
+    /* Using a more modern font stack */
+    body {
+      font-family: 'Roboto', sans-serif;
+      --primary-color: #8D5B4C; /* A warm, inviting brown for a pastry shop */
+      --secondary-color: #F4E9E2; /* A light, creamy background */
+      --accent-color: #D4A373; /* A golden accent for highlights */
+      --text-color: #4A3F35;
+      --heading-font: 'Source Serif Pro', serif;
+    }
+
+    .bg-primary { background-color: var(--primary-color); }
+    .bg-secondary { background-color: var(--secondary-color); }
+    .bg-accent { background-color: var(--accent-color); }
+    .text-primary { color: var(--primary-color); }
+    .text-accent { color: var(--accent-color); }
+    .text-default { color: var(--text-color); }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--heading-font); color: var(--primary-color); }
+
+    /* Hero Section Video Overlay */
+    .hero-background .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); /* Darker overlay for better text readability */
+    }
+
+    /* Custom Button Styles */
+    .btn {
+        @apply font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105;
+    }
+    .btn-primary {
+        @apply bg-accent text-white;
+    }
+    .btn-primary:hover {
+        background-color: #c8935a;
+    }
+    .btn-outline {
+        @apply bg-transparent border-2 border-white text-white;
+    }
+     .btn-outline:hover {
+        @apply bg-white text-primary;
+    }
+
+    /* Menu Card Hover Effect */
+    .menu-card {
+        @apply rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:-translate-y-2;
+    }
+    .menu-card img {
+        transition: transform 0.5s ease;
+    }
+    .menu-card:hover img {
+        transform: scale(1.1);
+    }
+    .price-overlay {
+        @apply absolute bottom-4 right-4 bg-accent text-white text-lg font-bold py-2 px-4 rounded-full shadow-xl;
+    }
+
+    /* Section Title Styling */
+    .section-title h2 {
+        @apply text-4xl font-bold mb-4;
+    }
+    .section-title p {
+        @apply text-lg text-gray-600;
+    }
+
+    /* Mobile Navigation */
+    .navmenu.active {
+        display: block !important;
+    }
+
+  </style>
+</head>
+
+<body class="bg-secondary text-default">
+
+  <!-- Header -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="branding flex items-center bg-primary/80 backdrop-blur-sm shadow-md">
+      <div class="container mx-auto position-relative flex items-center justify-between p-4">
+        <a href="index.html" class="logo flex items-center">
+          <h1 class="text-3xl font-bold text-white">Alchemy by Faiz</h1>
+        </a>
+        <nav id="navmenu" class="hidden lg:block">
+          <ul class="flex space-x-8">
+            <li><a href="#hero" class="text-white hover:text-accent transition-colors">Home</a></li>
+            <li><a href="#about" class="text-white hover:text-accent transition-colors">About</a></li>
+            <li><a href="#menu" class="text-white hover:text-accent transition-colors">Menu</a></li>
+            <li><a href="#contact" class="text-white hover:text-accent transition-colors">Contact</a></li>
+          </ul>
+        </nav>
+        <button id="mobile-nav-toggle" class="lg:hidden text-white text-3xl">
+            ☰
+        </button>
+      </div>
+    </div>
+    <div id="mobile-nav" class="hidden lg:hidden bg-primary/95 absolute top-full left-0 w-full">
+        <ul class="flex flex-col items-center p-4">
+            <li><a href="#hero" class="block py-2 text-white hover:text-accent transition-colors">Home</a></li>
+            <li><a href="#about" class="block py-2 text-white hover:text-accent transition-colors">About</a></li>
+            <li><a href="#menu" class="block py-2 text-white hover:text-accent transition-colors">Menu</a></li>
+            <li><a href="#contact" class="block py-2 text-white hover:text-accent transition-colors">Contact</a></li>
+        </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center text-white text-center overflow-hidden">
+      <div class="hero-background absolute top-0 left-0 w-full h-full z-0">
+        <!-- Video background -->
+        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+          <source src="video.mp4" type="video/mp4" onerror="this.parentElement.innerHTML = '<div class=\'w-full h-full bg-gray-800 flex items-center justify-center\'><p>Video could not be loaded.</p></div>';">
+        </video>
+        <div class="overlay"></div>
+      </div>
+      <div class="container mx-auto relative z-10 p-4">
+        <div class="hero-text">
+          <span class="tagline text-accent font-semibold tracking-widest uppercase">Handcrafted Goodness in Every Bite</span>
+          <h1 style="color:#ffffff" class="text-5xl md:text-7xl font-bold my-4 leading-tight">Welcome to Alchemy by Faiz</h1>
+          <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
+            Discover a world of exquisite pastries and baked goods, crafted with passion in the heart of Kochi. A cozy corner for your sweet cravings.
+          </p>
+          <div class="hero-actions flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#menu" class="btn btn-primary">View Our Menu</a>
+            <a href="#contact" class="btn btn-outline">Find Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="section-title text-center mb-12">
+          <h2>Our Little Patisserie</h2>
+          <p>More than just a shop, it's a feeling.</p>
+        </div>
+        <div class="flex flex-wrap items-center -mx-4">
+          <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
+            <img src="https://placehold.co/600x400/F4E9E2/8D5B4C?text=Cozy+Cafe+Space" alt="Cozy cafe interior" class="rounded-lg shadow-xl w-full">
+          </div>
+          <div class="w-full lg:w-1/2 px-4">
+            <h3 class="text-3xl font-bold mb-4">A Cozy Cafe in Kadungalloor</h3>
+            <p class="text-lg mb-4 text-default">
+              Nestled in Kadungalloor, Kochi, our pastry shop offers a warm and inviting atmosphere. It's the perfect spot to unwind, enjoy a cup of coffee, and indulge in freshly baked treats.
+            </p>
+            <p class="text-lg text-default">
+              We have **limited seating** to maintain a cozy and intimate experience for our guests. Please note that **we do not take bookings or reservations**; seating is available on a first-come, first-served basis. We look forward to welcoming you!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="section-title text-center mb-12">
+          <h2>Our Offerings</h2>
+          <p>Pastries and Baked Goods to Delight Your Senses</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Menu Item 1 -->
+          <div class="menu-card bg-secondary">
+            <div class="relative overflow-hidden h-64">
+              <img src="https://placehold.co/400x300/D4A373/FFFFFF?text=Chocolate+Eclair" alt="Chocolate Eclair" class="w-full h-full object-cover">
+              <div class="price-overlay">₹180</div>
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold mb-2">Chocolate Eclair</h4>
+              <p class="text-default">A classic choux pastry filled with rich chocolate cream and topped with a decadent glaze.</p>
+            </div>
+          </div>
+          <!-- Menu Item 2 -->
+          <div class="menu-card bg-secondary">
+            <div class="relative overflow-hidden h-64">
+              <img src="https://placehold.co/400x300/8D5B4C/FFFFFF?text=Red+Velvet+Pastry" alt="Red Velvet Pastry" class="w-full h-full object-cover">
+               <div class="price-overlay">₹220</div>
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold mb-2">Red Velvet Pastry</h4>
+              <p class="text-default">Moist red velvet cake layered with a smooth and tangy cream cheese frosting.</p>
+            </div>
+          </div>
+          <!-- Menu Item 3 -->
+          <div class="menu-card bg-secondary">
+            <div class="relative overflow-hidden h-64">
+              <img src="https://placehold.co/400x300/A0522D/FFFFFF?text=Almond+Croissant" alt="Almond Croissant" class="w-full h-full object-cover">
+               <div class="price-overlay">₹150</div>
+            </div>
+            <div class="p-6">
+              <h4 class="text-2xl font-bold mb-2">Almond Croissant</h4>
+              <p class="text-default">Flaky, buttery croissant with a sweet almond filling, topped with toasted almonds.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="section-title text-center mb-12">
+          <h2>Get In Touch</h2>
+          <p>Visit us or get our treats delivered to your doorstep.</p>
+        </div>
+        <div class="flex flex-wrap -mx-4">
+          <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
+             <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+                <h3 class="text-2xl font-bold mb-4">Our Location</h3>
+                <p class="text-lg mb-4">Find our cozy cafe at:</p>
+                <address class="not-italic text-lg text-default">
+                    Kadungalloor, Kochi, Kerala
+                </address>
+                <div class="mt-8">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.18123281483!2d76.3339468147948!3d10.08831919279543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080f0f0f0f0f0f%3A0x3b080f0f0f0f0f0f!2sKadungalloor!5e0!3m2!1sen!2sin!4v1672840851883!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-md"></iframe>
+                </div>
+             </div>
+          </div>
+          <div class="w-full lg:w-1/2 px-4">
+             <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+                <h3 class="text-2xl font-bold mb-4">Home Delivery</h3>
+                <p class="text-lg mb-4">
+                    Craving our pastries at home? You can order from us through your favorite delivery apps.
+                </p>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="transform hover:scale-110 transition-transform">
+                        <img src="https://placehold.co/150x50/FFFFFF/000000?text=Swiggy" alt="Swiggy Logo" class="h-12">
+                    </a>
+                    <a href="#" class="transform hover:scale-110 transition-transform">
+                        <img src="https://placehold.co/150x50/FFFFFF/000000?text=Zomato" alt="Zomato Logo" class="h-12">
+                    </a>
+                </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white py-12">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 Alchemy by Faiz. All Rights Reserved.</p>
+      <p class="text-sm text-gray-300 mt-2">Designed with love for the love of baking.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="hidden fixed bottom-5 right-5 bg-accent text-white w-12 h-12 rounded-full justify-center items-center shadow-lg transition-opacity">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
+  </a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        const navLinks = mobileNav.querySelectorAll('a');
+
+        mobileNavToggle.addEventListener('click', function() {
+            mobileNav.classList.toggle('hidden');
+        });
+        
+        // Close nav when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                 mobileNav.classList.add('hidden');
+            });
+        });
+
+        const scrollTop = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollTop.classList.remove('hidden');
+                scrollTop.classList.add('flex');
+            } else {
+                scrollTop.classList.add('hidden');
+                scrollTop.classList.remove('flex');
+            }
+        });
+
+        scrollTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+    });
+  </script>
+
+</body>
+</html>
